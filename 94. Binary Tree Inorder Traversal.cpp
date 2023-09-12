@@ -14,21 +14,20 @@ class Solution
 public:
     vector<int> ans;
 
-    void traverse(TreeNode *root)
+    void inorder(TreeNode *root)
     {
         if (!root)
             return;
 
-        traverse(root->left);
-
+        inorder(root->left);
         ans.push_back(root->val);
-
-        traverse(root->right);
+        inorder(root->right);
     }
 
     vector<int> inorderTraversal(TreeNode *root)
     {
-        traverse(root);
+        inorder(root);
+
         return ans;
     }
 };
